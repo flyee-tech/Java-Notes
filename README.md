@@ -86,3 +86,13 @@
         |-----------------  //使用嵌套的EnumMap来构建关联的一对枚举
         |Period.java
         |-----------------  //必要时进行保护性拷贝
+        
+####Java NIO
+    |com.peierlong.nio  //NIO使用示例
+        |TiemServer.java
+        |MultiplexerTimeServer.java
+        |-----------------  //NIO创建的TimeServer服务端
+        |TimeClient.java
+        |TimeClientHandle.java
+        |-----------------  //NIO创建的TimeClient客户端
+        
