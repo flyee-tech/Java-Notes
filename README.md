@@ -33,11 +33,10 @@
         |CASDemo.java
         |-----------------  //原子包boolean原子性示例
         |FairLock.java
-        |-----------------  //公平锁的实现
         |Lock.java
         |Synchronizer.java
         |LockTest.java
-        |-----------------  //锁的实现与测试
+        |-----------------  //锁(公平锁)的实现与测试
         |MyWaitNotify.java
         |-----------------  //测试notify和wait的执行流程
         |QueueObject.java
