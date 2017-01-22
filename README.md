@@ -95,3 +95,6 @@
         |TimeClientHandle.java
         |-----------------  //NIO创建的TimeClient客户端
         
+###JVM
+    |com.peierlong.jvm //JVM相关
+        |FinalizeEscapeGC.java //对象的自我拯救
