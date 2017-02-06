@@ -5,6 +5,7 @@ package com.peierlong.jvm;
  * 创建人 : Elong
  * 时间: 2017/1/22 下午4:50
  * 描述 : 1. 对象可以被GC时自我拯救  2. 这种自救的机会只有一次，因为一个对象的finalize()方法
+ *        注：一般情况不建议使用
  */
 public class FinalizeEscapeGC {
     private static FinalizeEscapeGC SAVE_LOCK = null;
