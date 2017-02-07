@@ -99,3 +99,4 @@
     |com.peierlong.jvm //JVM相关
         |FinalizeEscapeGC.java //对象的自我拯救
         |LookGC.java //当Eden空间不足，且无法放入Survivor空间时，通过担保机制提前转移到老年代
+        |BigObjectToTenured.java //使大对象直接进入老年代
