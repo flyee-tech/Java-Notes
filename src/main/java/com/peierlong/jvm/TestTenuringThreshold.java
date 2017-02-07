@@ -8,6 +8,7 @@ package com.peierlong.jvm;
  * JVM参数 : -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC
             -XX:MaxTenuringThreshold=1
    什么时候进入老年代取决于MaxTenuringThreshold设置
+   遇到的坑 > 动态对象年龄判断：如果在Survivor空间中相同年龄的对象的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象就直接进入老年代。
  */
 public class TestTenuringThreshold {
     private static final int _1MB = 1024 * 1024;
