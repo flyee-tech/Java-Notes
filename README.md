@@ -100,3 +100,4 @@
         |FinalizeEscapeGC.java //对象的自我拯救
         |TestAllocation.java //当Eden空间不足，且无法放入Survivor空间时，通过担保机制提前转移到老年代
         |TestPretenureSizeThreshold.java //使大对象直接进入老年代
+        |TestTenuringThreshold.java //长期存活的对象进入老年代
