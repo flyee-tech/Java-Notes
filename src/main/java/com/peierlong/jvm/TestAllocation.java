@@ -7,7 +7,7 @@ package com.peierlong.jvm;
  * 描述 : 观察GC日志，当Eden空间不足，且无法放入Survivor空间时，通过担保机制提前转移到老年代
  * JVM参数: -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC
  */
-public class LookGC {
+public class TestAllocation {
 
     private static final int _1MB = 1024 * 1024;
 
