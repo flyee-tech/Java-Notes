@@ -102,3 +102,4 @@
         |TestPretenureSizeThreshold.java //使大对象直接进入老年代
         |TestTenuringThreshold.java //长期存活的对象进入老年代
         |TestFullHeap.java //使用jConsole可视化工具查看虚拟机内存状态
+        |DeadLoopClass.java //如果一个类在<clinit>()方法中耗时很长，则可能造成多个阻塞
