@@ -104,3 +104,4 @@
         |TestFullHeap.java //使用jConsole可视化工具查看虚拟机内存状态
         |DeadLoopClass.java //如果一个类在<clinit>()方法中耗时很长，则可能造成多个阻塞
         |MethodHandlerTest.java //Java对动态类型语言支持
+        |MethodHandlerTest2.java //如何在子类方法中调用祖类方法
