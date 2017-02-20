@@ -97,15 +97,31 @@
         
 ###JVM
     |com.peierlong.jvm //JVM相关
-        |FinalizeEscapeGC.java //对象的自我拯救
-        |TestAllocation.java //当Eden空间不足，且无法放入Survivor空间时，通过担保机制提前转移到老年代
-        |TestPretenureSizeThreshold.java //使大对象直接进入老年代
-        |TestTenuringThreshold.java //长期存活的对象进入老年代
-        |TestFullHeap.java //使用jConsole可视化工具查看虚拟机内存状态
-        |DeadLoopClass.java //如果一个类在<clinit>()方法中耗时很长，则可能造成多个阻塞
-        |MethodHandlerTest.java //Java对动态类型语言支持
-        |MethodHandlerTest2.java //如何在子类方法中调用祖类方法
+        |FinalizeEscapeGC.java
+        |----------------- //对象的自我拯救
+        |TestAllocation.java
+        |----------------- //当Eden空间不足，且无法放入Survivor空间时，通过担保机制提前转移到老年代
+        |TestPretenureSizeThreshold.java
+        |----------------- //使大对象直接进入老年代
+        |TestTenuringThreshold.java
+        |----------------- //长期存活的对象进入老年代
+        |TestFullHeap.java
+        |----------------- //使用jConsole可视化工具查看虚拟机内存状态
+        |DeadLoopClass.java
+        |----------------- //如果一个类在<clinit>()方法中耗时很长，则可能造成多个阻塞
+        |MethodHandlerTest.java
+        |----------------- //Java对动态类型语言支持
+        |MethodHandlerTest2.java
+        |----------------- //如何在子类方法中调用祖类方法
         
 ###Spring
     |com.peierlong.spring
-        |SpELTest.java //Spring表达式语言使用示例
+        |SpELTest.java
+        |----------------- //Spring表达式语言使用示例
+    |com.peierlong.spring.aop
+        |HelloWorldService.java
+        |HelloWorldServiceImpl.java
+        |HelloWorldAspect.java
+        |AopTest.java
+        |resources/helloWorld.xml
+        |----------------- //AOP HelloWorld示例

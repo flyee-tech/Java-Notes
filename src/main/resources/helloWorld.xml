@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="helloWorldService" class="com.peierlong.spring.aop.HelloWorldServiceImpl"/>
+    <bean id="aspect" class="com.peierlong.spring.aop.HelloWorldAspect"/>
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* com.peierlong..*.*(..))"/>
+        <aop:aspect ref="aspect">
+            <aop:before pointcut-ref="pointcut" method="beforeAdvice"/>
+            <aop:after pointcut-ref="pointcut" method="afterFinallyAdvice"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
