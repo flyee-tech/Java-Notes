@@ -94,6 +94,9 @@
         |TimeClient.java
         |TimeClientHandle.java
         |-----------------  //NIO创建的TimeClient客户端
+    |com.peierlong.nio.ifeve
+        |ReadFileExample.java //NIO读取文件示例
+        
         
 ###JVM
     |com.peierlong.jvm //JVM相关
