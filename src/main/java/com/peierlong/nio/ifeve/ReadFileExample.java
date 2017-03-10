@@ -24,8 +24,8 @@ public class ReadFileExample {
         FileChannel readChannel = accessFile.getChannel();
 
         //缓冲区从通道中读取数据
-        ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
-        CharBuffer charBuffer = CharBuffer.allocate(1024);
+        ByteBuffer byteBuffer = ByteBuffer.allocate(1024 * 10); //10kb
+        CharBuffer charBuffer = CharBuffer.allocate(1024 * 10);
         int readSize = readChannel.read(byteBuffer);
 
         while (readSize != -1) {
