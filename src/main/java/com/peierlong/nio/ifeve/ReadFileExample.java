@@ -1,5 +1,7 @@
 package com.peierlong.nio.ifeve;
 
+import org.junit.Test;
+
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
@@ -15,7 +17,9 @@ import java.nio.charset.CharsetDecoder;
  * 描述 : NIO读取文件示例
  */
 public class ReadFileExample {
-    public static void main(String[] args) throws IOException {
+
+    @Test
+    public void testReadFromFile() throws IOException {
         //解决编码问题
         CharsetDecoder charsetDecoder = Charset.forName("utf-8").newDecoder();
 
@@ -47,5 +51,16 @@ public class ReadFileExample {
             readSize = readChannel.read(byteBuffer);
         }
         accessFile.close();
+    }
+
+    @Test
+    public void testTransferTO() throws IOException {
+        RandomAccessFile accessFile = new RandomAccessFile("/Users/elong/peierlong.txt", "rw");
+        FileChannel fromChannel = accessFile.getChannel();
+
+        RandomAccessFile accessFile1 = new RandomAccessFile("/Users/elong/toFile.txt", "rw");
+        FileChannel toChannel = accessFile1.getChannel();
+
+        fromChannel.transferTo(0, fromChannel.size(), toChannel);
     }
 }
