@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
  */
 class SingletonObject implements Serializable {
 
-    private static SingletonObject singletonObject = null;
+    private volatile static SingletonObject singletonObject = null;
     private String objName;
 
     private SingletonObject() {
@@ -23,9 +23,11 @@ class SingletonObject implements Serializable {
     /*
      * 命名规范:  getInstance返回唯一实例,  newInstance返回不通实例
      */
-    static SingletonObject getInstance() {
-        if (singletonObject == null)
-            singletonObject = new SingletonObject();
+    public static SingletonObject getInstance() {
+        synchronized (SingletonObject.class) {
+            if (singletonObject == null)
+                singletonObject = new SingletonObject();
+        }
         return singletonObject;
     }
 
