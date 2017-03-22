@@ -131,4 +131,5 @@
         
 ###ZooKeeper
     |com.peierlong.zookeeper
-        |testConnect.java  //官方API连接zookeeper并创建一个根结点
+        |testConnect.java //官方API连接zookeeper并创建一个根结点
+        |testCurator.java //开源Zookeeper客户端Curator使用示例

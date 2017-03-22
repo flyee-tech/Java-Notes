@@ -3,16 +3,22 @@ package com.peierlong.zookeeper;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.api.BackgroundCallback;
+import org.apache.curator.framework.api.CuratorEvent;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.data.Stat;
 import org.junit.Test;
 
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * 包名: com.peierlong.zookeeper
  * 创建人 : Elong
  * 时间: 22/03/2017 3:21 PM
- * 描述 : Curator使用测试类
+ * 描述 : 开源Zookeeper客户端Curator使用示例
  */
 public class testCurator {
 
@@ -57,6 +63,44 @@ public class testCurator {
      */
     @Test
     public void aSynTest() throws Exception {
+        RetryPolicy retryPolicy = new ExponentialBackoffRetry(1000, 3);
+        //使用Fluent风格的API接口来创建一个Zookeeper客户端
+        CuratorFramework client = CuratorFrameworkFactory.builder()
+                .connectString("127.0.0.1:2181")
+                .sessionTimeoutMs(5000)
+                .retryPolicy(retryPolicy)
+                .build();
+        final CountDownLatch semaphore = new CountDownLatch(2);
+        ExecutorService executorService = Executors.newFixedThreadPool(2);
+
+
+        client.start();
+        System.out.println("Main Thread : " + Thread.currentThread().getName());
+
+        client.create().creatingParentsIfNeeded().inBackground(
+                new BackgroundCallback() {
+                    @Override
+                    public void processResult(CuratorFramework curatorFramework, CuratorEvent curatorEvent) throws Exception {
+                        System.out.println("event1[code : " + curatorEvent.getResultCode() + ", type : " + curatorEvent.getType() + "]");
+                        System.out.println("当前线程1 : " + Thread.currentThread().getName());
+                        semaphore.countDown();
+                    }
+                }
+        , executorService).forPath("/asynchronous/test1", "init".getBytes());
+
+        client.create().creatingParentsIfNeeded().inBackground(
+                new BackgroundCallback() {
+                    @Override
+                    public void processResult(CuratorFramework curatorFramework, CuratorEvent curatorEvent) throws Exception {
+                        System.out.println("event2[code : " + curatorEvent.getResultCode() + ", type : " + curatorEvent.getType() + "]");
+                        System.out.println("当前线程2 : " + Thread.currentThread().getName());
+                        semaphore.countDown();
+                    }
+                }
+        ).forPath("/asynchronous/test1", "init".getBytes());
+
+        semaphore.await();
+        executorService.shutdown();
 
     }
 
