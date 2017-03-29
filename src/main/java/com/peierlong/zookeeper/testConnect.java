@@ -1,6 +1,7 @@
 package com.peierlong.zookeeper;
 
 import org.apache.zookeeper.*;
+import org.apache.zookeeper.data.Stat;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -35,6 +36,19 @@ public class testConnect {
         String path = zk.create("/zk-test", "123".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         System.out.println("Success create znode " + path);
 
+        Watcher watcher = new Watcher() {
+            @Override
+            public void process(WatchedEvent event) {
+                System.out.println(event.toString());
+            }
+        };
+
+        byte[] data = zk.getData("/zk-test", watcher, new Stat());
+
+        System.out.println(new String(data));
+
+
+        Thread.sleep(Integer.MAX_VALUE);
 
     }
 
