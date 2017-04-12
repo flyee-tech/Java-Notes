@@ -6,7 +6,7 @@ package com.peierlong.jvm;
  * 时间: 12/04/2017 6:31 PM
  * 描述 : 运行时常量池小知识
  */
-public class RunTimeConstantPoolOOM {
+public class ConstantPoolTest {
     public static void main(String[] args) {
 
         //jdk1.7第一次加载的字符串 在遇到intern方法时，不会实现复制，只是在常量池中记录首次出现实例引用
