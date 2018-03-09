@@ -4,7 +4,7 @@ package com.peierlong.jvm;
  * 包名: com.peierlong.jvm
  * 创建人 : Elong
  * 时间: 07/02/2017 2:18 PM
- * 描述 : 观察GC日志，当Eden空间不足，且无法放入Survivor空间时，通过担保机制提前转移到老年代
+ * 描述 : 在内存分配时，观察GC日志，当Eden空间不足，且无法放入Survivor空间时，通过担保机制提前转移到老年代
  * JVM参数: -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+UseSerialGC
  */
 public class TestAllocation {
