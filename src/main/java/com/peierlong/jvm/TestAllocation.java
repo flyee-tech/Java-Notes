@@ -25,6 +25,9 @@ public class TestAllocation {
         def new generation   total 9216K, used 4678K [0x00000007f9a00000, 0x00000007fa400000, 0x00000007fa400000)
         eden space 8192K,  53% used [0x00000007f9a00000, 0x00000007f9e3e6e0, 0x00000007fa200000)
         from space 1024K,  32% used [0x00000007fa300000, 0x00000007fa353248, 0x00000007fa400000)
+
+        //新生代总可用容量为 eden + 1个survivor的容量，8192 + 1024 = 9216k
+
         to   space 1024K,   0% used [0x00000007fa200000, 0x00000007fa200000, 0x00000007fa300000)
         tenured generation   total 10240K, used 6144K [0x00000007fa400000, 0x00000007fae00000, 0x00000007fae00000)
         the space 10240K,  60% used [0x00000007fa400000, 0x00000007faa00030, 0x00000007faa00200, 0x00000007fae00000)
