@@ -15,7 +15,7 @@ public class TestTenuringThreshold {
 
     public static void main(String[] args) {
         byte[] allocation1, allocation2, allocation3;
-        allocation1 = new byte[_1MB / 10];
+        allocation1 = new byte[_1MB / 100];
         allocation2 = new byte[4 * _1MB];
         allocation3 = new byte[4 * _1MB];
         allocation3 = null;
