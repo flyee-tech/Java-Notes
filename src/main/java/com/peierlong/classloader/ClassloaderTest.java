@@ -44,6 +44,9 @@ public class ClassloaderTest {
         Object obj = myClassLoader.loadClass("com.peierlong.classloader.ClassloaderTest").newInstance();
         System.out.println(obj.getClass());
         System.out.println(obj instanceof com.peierlong.classloader.ClassloaderTest);
+
+        System.out.println(obj.getClass().getClassLoader());
+        System.out.println(com.peierlong.classloader.ClassloaderTest.class.getClassLoader());
     }
 
     /*
@@ -51,6 +54,9 @@ public class ClassloaderTest {
 
     class com.peierlong.classloader.ClassloaderTest
     false
+
+    com.peierlong.classloader.ClassloaderTest$1@4e2c390c
+    sun.misc.Launcher$AppClassLoader@1b3e02ed
 
     */
 
