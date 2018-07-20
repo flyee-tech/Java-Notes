@@ -139,3 +139,4 @@
     |com.peierlong.lambda
         |CreateThreadDemo.java //创建线程
         |SortLambda.java //使用Lambda表达式进行排序操作
+        |UpperCase.java //使用Lambda表达式大写转换
