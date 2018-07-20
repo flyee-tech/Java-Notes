@@ -141,3 +141,4 @@
         |SortLambda.java //使用Lambda表达式进行排序操作
         |UpperCase.java //使用Lambda表达式大写转换
         |ForEachElement.java //使用Lambda表达式遍历数组
+        |SumDemo.java //利用reduce方法进行求和
