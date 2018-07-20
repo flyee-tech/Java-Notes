@@ -23,7 +23,7 @@ public class Java8AsyncRequest {
             System.out.println(Thread.currentThread() + ": " + s);
             try {
                 Thread.sleep(5000L);
-                return HttpClients.custom().build().execute(new HttpGet(s)).getStatusLine().getStatusCode() + "";
+                return HttpClients.createDefault().execute(new HttpGet(s)).getStatusLine().getStatusCode() + "";
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
