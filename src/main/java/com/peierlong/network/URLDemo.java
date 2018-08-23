@@ -15,8 +15,11 @@ public class URLDemo {
 
     public static void main(String[] args) throws IOException {
         URL url = new URL("http://www.baidu.com");
+            /* 字节流 */
         try (InputStream in = url.openStream();
+            /* 字符流 */
              InputStreamReader isr = new InputStreamReader(in, "UTF-8");
+            /* 提供缓存功能 */
              BufferedReader br = new BufferedReader(isr)) {
 
             String line;
