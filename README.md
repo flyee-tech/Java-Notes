@@ -63,7 +63,11 @@
         |ForwardingSet.java
         |ObservableSet.java
         |-----------------  //避免过度同步(观察者模式)
-        
+        |com.peierlong.design.patterns.factory.method
+        |-----------------  //工厂模式示例
+
+
+
 #### Java Best Practices
     |com.peierlong.best.practices   //最佳实践
         |PhoneNumber.java
