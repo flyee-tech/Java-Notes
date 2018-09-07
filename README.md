@@ -69,6 +69,8 @@
         |-----------------  //原型模式示例
         |com.peierlong.design.patterns.chain.of.responsibility
         |-----------------  //责任链示例
+        |com.peierlong.design.patterns.command
+        |-----------------  //命令示例
 
 
 
