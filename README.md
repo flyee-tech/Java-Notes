@@ -71,6 +71,8 @@
         |-----------------  //责任链示例
         |com.peierlong.design.patterns.command
         |-----------------  //命令示例
+        |com.peierlong.design.patterns.interpreter
+        |-----------------  //解释器示例
 
 
 
