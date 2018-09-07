@@ -73,6 +73,8 @@
         |-----------------  //命令示例
         |com.peierlong.design.patterns.interpreter
         |-----------------  //解释器示例
+        |com.peierlong.design.patterns.memento
+        |-----------------  //备忘录
 
 
 
