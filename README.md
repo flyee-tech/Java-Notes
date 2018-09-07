@@ -65,6 +65,8 @@
         |-----------------  //避免过度同步(观察者模式)
         |com.peierlong.design.patterns.factory.method
         |-----------------  //工厂模式示例
+        |com.peierlong.design.patterns.prototype
+        |-----------------  //原型模式示例
 
 
 
