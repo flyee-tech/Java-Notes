@@ -67,6 +67,8 @@
         |-----------------  //工厂模式示例
         |com.peierlong.design.patterns.prototype
         |-----------------  //原型模式示例
+        |com.peierlong.design.patterns.chain.of.responsibility
+        |-----------------  //责任链示例
 
 
 
