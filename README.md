@@ -75,6 +75,8 @@
         |-----------------  //解释器示例
         |com.peierlong.design.patterns.memento
         |-----------------  //备忘录
+        |com.peierlong.design.patterns.adapter
+        |-----------------  //适配器模式
 
 
 
