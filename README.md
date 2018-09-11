@@ -77,6 +77,8 @@
         |-----------------  //备忘录
         |com.peierlong.design.patterns.adapter
         |-----------------  //适配器模式
+        |com.peierlong.design.patterns.composite
+        |-----------------  //组合模式
 
 
 
