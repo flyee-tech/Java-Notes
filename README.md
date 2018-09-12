@@ -79,6 +79,8 @@
         |-----------------  //适配器模式
         |com.peierlong.design.patterns.composite
         |-----------------  //组合模式
+        |com.peierlong.design.patterns.decorator
+        |-----------------  //装饰模式
 
 
 
