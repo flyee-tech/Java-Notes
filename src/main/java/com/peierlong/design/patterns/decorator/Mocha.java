@@ -5,8 +5,7 @@ package com.peierlong.design.patterns.decorator;
  * @version V1.0
  * @date 2018/9/12
  */
-public class Mocha implements Beverage {
-    Beverage beverage;
+public class Mocha extends BeverageDecorator {
 
     public Mocha(Beverage beverage) {
         this.beverage = beverage;
