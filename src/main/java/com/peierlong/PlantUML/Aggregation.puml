@@ -1,4 +1,4 @@
-'聚合关系
+'聚合关系 不是强依赖
 @startuml
 
 title Aggregation
