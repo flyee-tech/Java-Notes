@@ -1,0 +1,10 @@
+'关联关系
+@startuml
+title Association
+
+class School
+class Student
+
+School "1" - "n" Student
+
+@enduml
