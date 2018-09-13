@@ -1,0 +1,20 @@
+'依赖关系
+@startuml
+
+title Dependency
+
+class Vihicle {
+    move(MoveBehavior)
+}
+
+interface MoveBehavior{
+    move()
+}
+
+note "MoveBehavior.move()" as N
+
+Vihicle ..> MoveBehavior
+
+Vihicle ..N
+
+@enduml
