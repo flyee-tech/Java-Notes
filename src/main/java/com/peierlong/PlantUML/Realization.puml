@@ -1,0 +1,13 @@
+' 实现关系
+@startuml
+
+title Realization
+
+interface MoveBehavior
+class Fly
+class Run
+
+MoveBehavior <|.. Fly
+MoveBehavior <|.. Run
+
+@enduml

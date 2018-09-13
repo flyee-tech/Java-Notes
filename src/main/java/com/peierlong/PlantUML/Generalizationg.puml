@@ -1,0 +1,13 @@
+'泛化关系 Java中体现为继承
+@startuml
+
+title Generalization
+
+class Animal
+class Dog
+class Cat
+
+Animal <|-- Dog
+Animal <|-- Cat
+
+@enduml
