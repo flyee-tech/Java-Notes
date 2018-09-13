@@ -1,0 +1,13 @@
+'组合关系  强依赖
+@startuml
+
+title Composition
+
+class Company
+class DepartmentA
+class DepartmentB
+
+Company *-- DepartmentA
+Company *-- DepartmentB
+
+@enduml
