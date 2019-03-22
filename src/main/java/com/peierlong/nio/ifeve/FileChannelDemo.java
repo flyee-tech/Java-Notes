@@ -1,7 +1,7 @@
 package com.peierlong.nio.ifeve;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
@@ -15,12 +15,12 @@ public class FileChannelDemo {
     public static void main(String[] args) throws IOException {
 
         // Channel 第一种获取方式
-//        RandomAccessFile fis = new RandomAccessFile("/Users/peiel/a.txt", "rw");
-//        FileChannel fileChannel = fis.getChannel();
+        RandomAccessFile fis = new RandomAccessFile("/Users/peiel/a.txt", "rw");
+        FileChannel fileChannel = fis.getChannel();
 
         // Channel 第二种获取方式
-        FileInputStream fis = new FileInputStream("/Users/peiel/a.txt");
-        FileChannel fileChannel = fis.getChannel();
+//        FileInputStream fis = new FileInputStream("/Users/peiel/a.txt");
+//        FileChannel fileChannel = fis.getChannel();
 
         ByteBuffer buf = ByteBuffer.allocate(4);
 
@@ -46,6 +46,19 @@ public class FileChannelDemo {
 //            System.out.println();
 //            System.out.println("position : " + fileChannel.position());
         }
+
+
+        // 写入
+//        String newData = "This is a boy!";
+//
+//        ByteBuffer byteBuffer = ByteBuffer.allocate(16);
+//        byteBuffer.clear();
+//        byteBuffer.put(newData.getBytes());
+//
+//        byteBuffer.flip();
+//        while (byteBuffer.hasRemaining()) {
+//            fileChannel.write(byteBuffer);
+//        }
 
 
         fileChannel.close();
