@@ -15,7 +15,6 @@ public class DirectMemoryOOM {
     private static final int _100MB = 1024 * 1024 * 100;
 
     public static void main(String[] args) throws IllegalAccessException {
-        DirectMemoryOOM s = new DirectMemoryOOM();
         Field field = Unsafe.class.getDeclaredFields()[0];
         field.setAccessible(true);
         Unsafe unsafe = (Unsafe) field.get(null);
