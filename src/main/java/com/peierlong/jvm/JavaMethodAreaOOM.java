@@ -12,6 +12,14 @@ import java.lang.reflect.Method;
  * 时间: 12/04/2017 6:51 PM
  * 描述 : 方法区内存溢出示例
  * JVM参数 : -XX:PermSize=10M -XX:MaxPermSize=10M
+ *
+ * Java8 移除了永久代（method area），添加了元空间
+ * 在Java8下添加如下配置来产生异常：
+ *
+ * -XX:MetaspaceSize=10M -XX:MaxMetaspaceSize=10M
+ *
+ * [out]: java.lang.OutOfMemoryError: Metaspace
+ *
  */
 public class JavaMethodAreaOOM {
 
