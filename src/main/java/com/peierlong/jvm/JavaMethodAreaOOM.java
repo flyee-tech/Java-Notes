@@ -29,17 +29,12 @@ public class JavaMethodAreaOOM {
             Enhancer enhancer = new Enhancer();
             enhancer.setSuperclass(OOMObject.class);
             enhancer.setUseCache(false);
-            enhancer.setCallback(new MethodInterceptor() {
-                @Override
-                public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-                    return methodProxy.invoke(o, objects);
-                }
-            });
+            enhancer.setCallback((MethodInterceptor) (o, method, objects, methodProxy) -> methodProxy.invoke(o, objects));
             enhancer.create();
         }
     }
 
-    static class OOMObject {
+    private static class OOMObject {
     }
 
 
