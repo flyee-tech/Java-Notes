@@ -1,8 +1,9 @@
 package com.peierlong.concurrency;
 
-import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 包名: com.elong.concurrency
@@ -12,53 +13,25 @@ import java.util.concurrent.CyclicBarrier;
  * CyclicBarrier 会等待所有的线程到达触发点执行barrier中的线程
  */
 public class CyclicBarrierTest {
-    private final CyclicBarrier barrier;
-    private final Worker[] workers;
-
-    public CyclicBarrierTest() {
-        int count = Runtime.getRuntime().availableProcessors();
-        System.out.println("cpu 数量: " + count);
-        barrier = new CyclicBarrier(count, new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("======= 做一些事情 =======");
-            }
-        });
-        workers = new Worker[count];
-        for (int i = 0; i < count; i++)
-            workers[i] = new Worker();
-    }
-
-    class Worker implements Runnable {
-        @Override
-        public void run() {
-
-            Random random = new Random();
-            int i = random.nextInt(100);
-            System.out.println(Thread.currentThread().getName() + " " + i*100);
-            try {
-                Thread.sleep(i * 100);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            try {
-                barrier.await();
-            } catch (InterruptedException | BrokenBarrierException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    private void start(){
-        for (Worker worker : workers) {
-            new Thread(worker).start();
-        }
-    }
 
     public static void main(String[] args) {
-        CyclicBarrierTest barrierTest = new CyclicBarrierTest();
-        barrierTest.start();
+        final int totalThread = 10;
+        CyclicBarrier cyclicBarrier = new CyclicBarrier(totalThread);
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        for (int i = 0; i < totalThread; i++) {
+            executorService.execute(() -> {
+                System.out.println("before");
+                try {
+                    // 这里是重点，等待所有线程执行完成后才向下执行。 | ★★★★★
+                    cyclicBarrier.await();
+                } catch (InterruptedException | BrokenBarrierException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("after");
+            });
+        }
+        executorService.shutdown();
     }
+
 }
 
