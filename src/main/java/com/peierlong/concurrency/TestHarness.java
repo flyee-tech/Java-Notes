@@ -1,6 +1,8 @@
 package com.peierlong.concurrency;
 
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -40,27 +42,38 @@ public class TestHarness {
     }
 
 //***************** test ***************************************************************
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+//        Runnable runnable = () -> {
+//            try {
+//                TimeUnit.MILLISECONDS.sleep(5000);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//            System.out.println(Thread.currentThread().getName() + " 任务处理完成 ....");
+//        };
+//        long runningTime = timeTask(6, runnable);
+//        System.out.println("最终执行耗时: " + runningTime);
 
-        Runnable runnable = () -> {
-            try {
-                TimeUnit.MILLISECONDS.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            System.out.println(Thread.currentThread().getName() + " 任务处理完成 ....");
-        };
-
-        try {
-            long runningTime = timeTask(6, runnable);
-            System.out.println("最终执行耗时: " + runningTime);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
+        countDownLatchDemo();
     }
 //***************** test ***************************************************************
 
+//***************** new demo ***************************************************************
+    public static void countDownLatchDemo() throws InterruptedException {
+        final int totalThread = 10;
+        CountDownLatch countDownLatch = new CountDownLatch(totalThread);
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        for (int i = 0; i < totalThread; i++) {
+            executorService.execute(() -> {
+                System.out.println("run ... ");
+                countDownLatch.countDown();
+            });
+        }
+        countDownLatch.await();
+        System.out.println("end ...");
+        executorService.shutdown();
+    }
+//***************** new demo ***************************************************************
 
 
 }
