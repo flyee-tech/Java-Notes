@@ -16,22 +16,19 @@ public class TestHarness {
         final CountDownLatch endGate = new CountDownLatch(threadNum);
 
         for (int i = 0; i < threadNum; i++) {
-            new Thread(){
-                @Override
-                public void run() {
+            new Thread(() -> {
+                try {
+                    startGate.await();
+                    System.out.println(Thread.currentThread().getName() + "开始执行任务 ...");
                     try {
-                        startGate.await();
-                        System.out.println(Thread.currentThread().getName() + "开始执行runnable ...");
-                        try {
-                            runnable.run();
-                        } finally {
-                            endGate.countDown();
-                        }
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        runnable.run();
+                    } finally {
+                        endGate.countDown();
                     }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            }.start();
+            }).start();
         }
         long startTime = System.currentTimeMillis();
         startGate.countDown();
@@ -45,16 +42,13 @@ public class TestHarness {
 //***************** test ***************************************************************
     public static void main(String[] args) {
 
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    TimeUnit.MILLISECONDS.sleep(5000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(Thread.currentThread().getName() + " 正在处理工作 ....");
+        Runnable runnable = () -> {
+            try {
+                TimeUnit.MILLISECONDS.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            System.out.println(Thread.currentThread().getName() + " 任务处理完成 ....");
         };
 
         try {
