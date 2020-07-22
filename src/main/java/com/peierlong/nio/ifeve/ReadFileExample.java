@@ -7,8 +7,8 @@ import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 import java.nio.channels.FileChannel;
-import java.nio.charset.Charset;
 import java.nio.charset.CharsetDecoder;
+import java.nio.charset.StandardCharsets;
 
 /**
  * 包名: com.peierlong.nio.ifeve
@@ -21,7 +21,7 @@ public class ReadFileExample {
     @Test
     public void testReadFromFile() throws IOException {
         //解决编码问题
-        CharsetDecoder charsetDecoder = Charset.forName("utf-8").newDecoder();
+        CharsetDecoder charsetDecoder = StandardCharsets.UTF_8.newDecoder();
 
         //打开一个Channel
         RandomAccessFile accessFile = new RandomAccessFile("/Users/elong/Downloads/3.公司相关/notes.txt", "rw");
