@@ -20,7 +20,7 @@ public class CopyFileDemo {
     public static void copyFile(String src, String desc) throws IOException {
         FileInputStream in = new FileInputStream(src);
         FileOutputStream out = new FileOutputStream(desc);
-        byte[] buffer = new byte[1024 * 1024];    //20kb buffer
+        byte[] buffer = new byte[20 * 1024];    //20kb buffer
         int cnt;
         while ((cnt = in.read(buffer, 0, buffer.length)) != -1) {
             out.write(buffer, 0, cnt);
