@@ -47,7 +47,9 @@
         |-----------------  //ThreadLocalTest
         |TreeNode.java
         |-----------------  //死锁示例
-        
+        |ThreadPoolOomTest.java
+        |-----------------  //线程池 OOM 复现
+
 #### Design Patterns
     |com.elong.design.patterns  //设计模式
         |EnumSingleton.java
@@ -107,7 +109,7 @@
         |-----------------  //使用嵌套的EnumMap来构建关联的一对枚举
         |Period.java
         |-----------------  //必要时进行保护性拷贝
-        
+
 #### Java NIO
     |com.peierlong.nio  //NIO使用示例
         |TiemServer.java
@@ -118,8 +120,9 @@
         |-----------------  //NIO创建的TimeClient客户端
     |com.peierlong.nio.ifeve
         |ReadFileExample.java //NIO读取文件示例
-        
-        
+
+
+​        
 #### JVM
     |com.peierlong.jvm //JVM相关
         |FinalizeEscapeGC.java
@@ -138,7 +141,7 @@
         |----------------- //Java对动态类型语言支持
         |MethodHandlerTest2.java
         |----------------- //如何在子类方法中调用祖类方法
-        
+
 #### Spring
     |com.peierlong.spring
         |SpELTest.java
@@ -152,7 +155,7 @@
         |AopTest.java
         |resources/helloWorld.xml
         |----------------- //AOP HelloWorld示例
-        
+
 #### ZooKeeper
     |com.peierlong.zookeeper
         |testConnect.java //官方API连接zookeeper并创建一个根结点
